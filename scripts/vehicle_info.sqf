@@ -1,0 +1,11 @@
+private["_control","_vehicle","_class","_magazineslots","_weaponslots","_backpackslots","_magazineCount","_weaponsCount","_backpackCount"];
+disableSerialization;
+_vehicle = _this;
+_class = typeOf _vehicle;
+_magazineslots = getNumber(configFile >> "CfgVehicles" >> _class >> "transportMaxMagazines");
+_weaponslots = getNumber(configFile >> "CfgVehicles" >> _class >> "transportMaxWeapons");
+_backpackslots = getNumber(configFile >> "CfgVehicles" >> _class >> "transportmaxbackpacks");
+_magazineCount = ((getMagazineCargo _vehicle) select 1) call vehicle_gear_count;
+_weaponsCount = ((getWeaponCargo _vehicle) select 1) call vehicle_gear_count;
+_backpackCount = ((getBackpackCargo _vehicle) select 1) call vehicle_gear_count;
+format["Владелец: %1<br/>Класс: %2<br/>Оружие: %6/%3<br/>Припасы: %7/%4<br/>Сумки: %8/%5<br/>Простой: %9",_vehicle getVariable["OwnerName",""],_class,_weaponslots,_magazineslots,_backpackslots,_weaponsCount,_magazineCount,_backpackCount,[_vehicle getVariable["LostTime",0],true] call vehicle_lostTimeFmt];

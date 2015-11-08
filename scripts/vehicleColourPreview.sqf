@@ -1,0 +1,10 @@
+private ["_colour","_colour2","_s5700","_s5701","_s5702","_s6700","_s6701","_s6702"];
+_s5700=sliderPosition 5700;
+_s5701=sliderPosition 5701;
+_s5702=sliderPosition 5702;
+_s6700=sliderPosition 6700;
+_s6701=sliderPosition 6701;
+_s6702=sliderPosition 6702;
+_colour=""+str(_s5700/10)+","+str(_s5701/10)+","+str(_s5702/10)+",1";
+_colour2=""+str(_s6700/10)+","+str(_s6701/10)+","+str(_s6702/10)+",1";
+["","paint",[_colour,_colour2,[[5700,_s5700],[5701,_s5701],[5702,_s5702],[6700,_s6700],[6701,_s6701],[6702,_s6702]]]]spawn fnc_Preview;
